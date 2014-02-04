@@ -14,3 +14,7 @@ Add `GROOVY_HOME` to .bashrc, .zshrc
 
     grape install org.codehaus.groovy.modules.http-builder http-builder 
 
+## Content Type in Groovy
+
+In examples using static variable [contentType](http://groovy.codehaus.org/modules/http-builder/apidocs/groovyx/net/http/ContentType.html) with value [JSON](http://groovy.codehaus.org/modules/http-builder/apidocs/groovyx/net/http/ContentType.html#JSON).
+
