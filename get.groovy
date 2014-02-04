@@ -1,5 +1,7 @@
 import groovyx.net.http.RESTClient
 import static groovyx.net.http.ContentType.JSON
+import groovy.json.JsonSlurper
+import groovy.json.JsonOutput
 
 url = "http://restapi3.apiary.io"
 
@@ -9,5 +11,8 @@ def client = new RESTClient(url)
 def response = client.get(path: "/notes", 
   headers: [Accept: 'application/json'])
 
-println("Status:" + response.status)
-println("Body:" + response.data)
+println("Status: " + response.status)
+if (response.data) {
+	println("Content Type: " + response.contentType)
+	println("Body:\n" + JsonOutput.prettyPrint(JsonOutput.toJson(response.data)))
+}
