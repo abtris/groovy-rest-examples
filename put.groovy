@@ -9,7 +9,7 @@ url = "http://restapi3.apiary.io"
 def client = new RESTClient(url)
 
 def jsonObj = new JsonSlurper().parseText('{ "title": "Pick-up posters from Post-Office" }')
-def response = client.put(path: "/notes/id", 
+def response = client.put(path: "/notes/id",
   contentType: JSON,
   body: jsonObj,
   headers: [Accept: 'application/json'])
@@ -17,5 +17,6 @@ def response = client.put(path: "/notes/id",
 println("Status: " + response.status)
 if (response.data) {
 	println("Content Type: " + response.contentType)
+  println("Headers: " + response.getAllHeaders())
 	println("Body:\n" + JsonOutput.prettyPrint(JsonOutput.toJson(response.data)))
 }
