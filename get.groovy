@@ -13,11 +13,11 @@ emptyHeaders."Accept" = 'application/json'
 emptyHeaders."Prefer" = 'test'
 
 def response = client.get(path: "/notes",
-  headers: emptyHeaders)
+  headers: emptyHeaders
 
 println("Status: " + response.status)
 if (response.data) {
-	println("Content Type: " + response.contentType)
+  println("Content Type: " + response.contentType)
   println("Headers: " + response.getAllHeaders())
-	println("Body:\n" + JsonOutput.prettyPrint(JsonOutput.toJson(response.data)))
+  println("Body:\n" + JsonOutput.prettyPrint(JsonOutput.toJson(response.data)))
 }

@@ -13,7 +13,7 @@ def response = client.delete(path: "/notes/2",
 
 println("Status: " + response.status)
 if (response.data) {
-	println("Content Type: " + response.contentType)
+  println("Content Type: " + response.contentType)
   println("Headers: " + response.getAllHeaders())
-	println("Body:\n" + JsonOutput.prettyPrint(JsonOutput.toJson(response.data)))
+  println("Body:\n" + JsonOutput.prettyPrint(JsonOutput.toJson(response.data)))
 }
