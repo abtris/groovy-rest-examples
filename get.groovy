@@ -8,8 +8,12 @@ url = "http://restapi3.apiary.io"
 @Grab (group = 'org.codehaus.groovy.modules.http-builder', module = 'http-builder', version = '0.5.0')
 def client = new RESTClient(url)
 
-def response = client.get(path: "/notes", 
-  headers: [Accept: 'application/json'])
+def emptyHeaders = [:]
+emptyHeaders."Accept" = 'application/json'
+emptyHeaders."Prefer" = 'test'
+
+def response = client.get(path: "/notes",
+  headers: emptyHeaders)
 
 println("Status: " + response.status)
 if (response.data) {
